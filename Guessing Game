@@ -25,30 +25,37 @@ guesses = 0
 
 while True:
 
-    user_guess = (int(input("Welcome to the guessing game! Guess the number between " + str(lower_limit) + " and " + str(upper_limit)+ ": ")))
-    guesses += 1
+        user_guess = str(input("Welcome to the guessing game! Guess the number between " + str(lower_limit) + " and " + str(upper_limit)+ ": "))
+        if user_guess.isdigit():
+            user_guess = int(user_guess)
+            guesses += 1
 
-    if (user_guess < secret_number):
-        if guesses == 1:
-            print("You have made " + str(guesses) + " guess")
+            if (user_guess < secret_number):
+                    if guesses == 1:
+                        print("You have made " + str(guesses) + " guess")
+                    else:
+                        print("You have made " + str(guesses) + " guesses")
+                        print("Nope! That's not it, too low!")
+
+            elif (user_guess > secret_number):
+                    if guesses == 1:
+                        print("You have made " + str(guesses) + " guess")
+                    else:
+                        print("You have made " + str(guesses) + " guesses")
+                        print("Nope! That's not it, too high")
+
+            else:
+                    print("You have guessed the number!")
+                    if guesses == 1:
+                        print("It took you only " + str(guesses) + " guess")
+                    else:
+                        print("It took you " + str(guesses) + " guesses")
+                    break
+            
         else:
-            print("You have made " + str(guesses) + " guesses")
-        print("Nope! That's not it, too low!")
+            print("Invalid Input")
 
-    elif (user_guess > secret_number):
-        if guesses == 1:
-            print("You have made " + str(guesses) + " guess")
-        else:
-            print("You have made " + str(guesses) + " guesses")
-        print("Nope! That's not it, too high")
-
-    else:
-        if guesses == 1:
-            print("You have made " + str(guesses) + " guess")
-        else:
-             print("You have made " + str(guesses) + " guesses")
-        print("You have guess the number!")
-
-        break
   
+
+
 
