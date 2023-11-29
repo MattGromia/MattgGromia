@@ -1,0 +1,53 @@
+import random
+
+# Have program welcome user: "Welcome to the guessing game" Make user choose lower and upper limit!
+# Have program ask user for valid digits if user doesnt put a valid digit
+# Program has to record number of tries
+# have program tell you if number is too high, "Nope!, that's not it, too high!"
+# have program tell you if number is too low, "Nope!, that's not it, too low!"
+# if user gets it correct, then congratulate user "You have guessed the number!"
+
+while True:
+    lower_limit = str(input("Choose your lower limit: "))
+    upper_limit = str(input("Choose your upper limit: "))
+
+    if lower_limit.isdigit() and upper_limit.isdigit():
+        lower_limit = int(lower_limit)
+        upper_limit = int(upper_limit)
+
+        secret_number = random.randint(lower_limit, upper_limit)
+        break
+            
+    else:
+        print("Invalid input, please add valid digits for lower and upper limit :P ")
+        
+guesses = 0
+
+while True:
+
+    user_guess = (int(input("Welcome to the guessing game! Guess the number between " + str(lower_limit) + " and " + str(upper_limit)+ ": ")))
+    guesses += 1
+
+    if (user_guess < secret_number):
+        if guesses == 1:
+            print("You have made " + str(guesses) + " guess")
+        else:
+            print("You have made " + str(guesses) + " guesses")
+        print("Nope! That's not it, too low!")
+
+    elif (user_guess > secret_number):
+        if guesses == 1:
+            print("You have made " + str(guesses) + " guess")
+        else:
+            print("You have made " + str(guesses) + " guesses")
+        print("Nope! That's not it, too high")
+
+    else:
+        if guesses == 1:
+            print("You have made " + str(guesses) + " guess")
+        else:
+             print("You have made " + str(guesses) + " guesses")
+        print("You have guess the number!")
+
+        break
+  
