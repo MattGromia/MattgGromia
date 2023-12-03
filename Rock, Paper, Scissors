@@ -1,1 +1,67 @@
 # Rock, Paper, Scissors
+# welcome user to Rock, Paper scissors
+# Have user choose between rock paper scissors
+# return apporopiate response depending on input
+# have a countdown as anticipation on what the program decides to throw
+# first to 3
+# "winner winner chicken dinner"
+
+import time
+import random
+
+while True:
+    print("Welcome to Rock, Paper, Scissors!")
+
+    while True:
+
+        player_score = 0
+        opponent_score = 0
+        rounds_to_win = 3
+
+        while player_score < rounds_to_win and opponent_score < rounds_to_win:
+            choices = {"rock", "paper", "scissors"}
+            player = input("Please choose either rock, paper, or scissors: ").lower()
+
+            if player in choices:
+                print("You have chosen: " + player.upper())
+                opponent = random.choice(["rock", "paper", "scissors"])
+
+                print("Your opponent chooses: ")
+                for i in range(3, 0, -1):
+                    print("...")
+                    time.sleep(1)
+                print(opponent.upper())
+
+                if (
+                    (player == "rock" and opponent == "scissors") or
+                    (player == "scissors" and opponent == "paper") or
+                    (player == "paper" and opponent == "rock")
+                ):
+                    print("You win this round!")
+                    player_score += 1
+
+                elif player == opponent:
+                    print("It's a tie!")
+
+                else:
+                    print("You lose this round!")
+                    opponent_score += 1
+
+                print(f"Player score: {player_score}, Opponent score: {opponent_score}\n")
+
+            else:
+                print("Invalid Input, please choose either rock, paper, or scissors")
+
+        if player_score == rounds_to_win:
+            print("WINNER WINNER CHICKEN DINNER")
+        else:
+            print("You lose! Better luck next time!")
+
+        playagain = (input("Would you like to play again? Yes/No: ")).lower()
+
+        if playagain != "yes":
+            break
+        else:
+            continue
+
+    break
